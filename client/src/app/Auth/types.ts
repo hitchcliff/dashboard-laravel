@@ -5,3 +5,8 @@ export interface RegisterTypes {
   password: string;
   password_confirmation: string;
 }
+
+export interface Logintypes {
+  username: string;
+  password: string;
+}

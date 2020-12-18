@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import useAuthService from '../Hooks/useAuthService';
 
 interface RegisterProps {
   state: (e: boolean) => void;
@@ -12,16 +13,23 @@ export default function Register({ state }: RegisterProps) {
     password: '',
     password_confirmation: '',
   });
+  const { Register } = useAuthService();
+
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    Register(value);
+  }
 
   return (
     <div className="ml-auto p-12 w-1/4">
-      <form method="POST">
+      <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="name">Full name</label>
           <input
             className="form-input"
             type="text"
             placeholder="Enter name"
+            required
             value={value.name}
             onChange={e => setValue({ ...value, name: e.currentTarget.value })}
           />
@@ -32,6 +40,7 @@ export default function Register({ state }: RegisterProps) {
             className="form-input"
             type="text"
             placeholder="Username"
+            required
             value={value.username}
             onChange={e => setValue({ ...value, username: e.currentTarget.value })}
           />
@@ -42,6 +51,7 @@ export default function Register({ state }: RegisterProps) {
             className="form-input"
             type="email"
             placeholder="Email"
+            required
             value={value.email}
             onChange={e => setValue({ ...value, email: e.currentTarget.value })}
           />
@@ -52,6 +62,7 @@ export default function Register({ state }: RegisterProps) {
             className="form-input"
             type="password"
             placeholder="Password"
+            required
             value={value.password}
             onChange={e => setValue({ ...value, password: e.currentTarget.value })}
           />
@@ -62,6 +73,7 @@ export default function Register({ state }: RegisterProps) {
             className="form-input"
             type="password"
             placeholder="Confirm Password"
+            required
             value={value.password_confirmation}
             onChange={e =>
               setValue({

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import useAuthService from '../Hooks/useAuthService';
 
 interface LoginProps {
   state: (e: boolean) => void;
@@ -10,9 +11,16 @@ export default function Login({ state }: LoginProps) {
     password: '',
   });
 
+  const { Login } = useAuthService();
+
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    Login(value);
+  }
+
   return (
     <div className="ml-auto p-12 w-1/4">
-      <form action="" method="POST">
+      <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="username">Username</label>
           <input

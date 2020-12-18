@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\ApiController;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
-class RegisterController extends Controller
+class RegisterController extends ApiController
 {
     public function index()
     {
@@ -17,14 +18,12 @@ class RegisterController extends Controller
 
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'name' => 'required|max:255',
-            'username' => 'required|max:255',
-            'email' => 'required|email|max:255',
-            'password' => 'required|confirmed|max:255',
-        ]);
+        $validator = $this->validateRequest();
+        if ($validator->fails()) {
+            return $this->errorResponse($validator->messages(), 422);
+        }
 
-        User::create([
+        $user = User::create([
             'name' => $request->name,
             'username' => $request->username,
             'email' => $request->email,
@@ -33,9 +32,17 @@ class RegisterController extends Controller
 
         // logged in
         if (Auth::attempt($request->only('username', 'password'))) {
-            return ['user' => $request->only('email', 'username'), 'message' => "Good good, successfully created."];
+            return $this->successResponse($user, 'Good good, user created.', 201);
         };
+    }
 
-        return ["message" => "Not good, unable to create."];
+    public function validateRequest()
+    {
+        return Validator::make(request()->all(), [
+            'name' => 'required|max:255',
+            'username' => 'required|max:255',
+            'email' => 'required|email|max:255',
+            'password' => 'required|confirmed|max:255',
+        ]);
     }
 }
