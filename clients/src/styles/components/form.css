@@ -1,0 +1,23 @@
+.form-group {
+  @apply mt-4 flex flex-col;
+}
+
+.form-input {
+  @apply mt-2 p-3 rounded-lg bg-gray-100;
+}
+
+.form-submit {
+  @apply bg-green-600 py-2 px-9 text-white text-lg font-semibold rounded-lg shadow-md;
+}
+
+.form-submit:hover {
+  @apply hover:bg-green-500;
+}
+
+.form-submit:focus {
+  @apply outline-none border-2 border-green-900;
+}
+
+.form-submit:active {
+  @apply bg-green-900;
+}
