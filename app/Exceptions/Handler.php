@@ -2,7 +2,6 @@
 
 namespace App\Exceptions;
 
-use App\Traits\ApiResponser;
 use Exception;
 use Illuminate\Database\QueryException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
@@ -31,7 +30,7 @@ class Handler extends ExceptionHandler
 
     public function render($request, Throwable $exception)
     {
-        $response = ["message" => "User already exists."];
-        return $response;
+        // $response = ["message" => "User already exists."];
+        return $exception;
     }
 }

@@ -22,7 +22,8 @@ export default class AuthService {
   async Register(value: RegisterTypes) {
     try {
       const { data } = await axios.post(AuthRegister, value);
-      this.dispatch(register(data));
+      console.log(data);
+      Store.dispatch(register(data));
     } catch (error) {
       console.error('Auth Register', error);
     }
