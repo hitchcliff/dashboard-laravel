@@ -20,7 +20,7 @@ export interface UsersTypes {
 
 export const userAdapter = createEntityAdapter<UsersTypes>({
   selectId: item => item.id,
-  sortComparer: (a, b) => a.is_active - b.is_active,
+  sortComparer: (a, b) => b.is_active - a.is_active,
 });
 
 export const UserSlice = createSlice({

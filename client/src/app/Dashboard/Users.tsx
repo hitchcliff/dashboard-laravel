@@ -25,7 +25,7 @@ export default function Users() {
       <h1 className="text-3xl text-black font-bold">List of users</h1>
       <div className="bg-white rounded-md shadow-sm px-5 pb-5 pt-1 mt-10">
         <table className="mt-5 table-auto text-left w-full">
-          <thead>
+          <thead className="border-b-2 border-gray-300">
             <tr>
               <th>ID</th>
               <th>Name</th>
@@ -37,7 +37,6 @@ export default function Users() {
               <th>Active</th>
             </tr>
           </thead>
-          <div className="p-1"></div>
           <tbody>{mapUsers}</tbody>
         </table>
       </div>
