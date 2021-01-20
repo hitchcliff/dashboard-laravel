@@ -4,8 +4,11 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { AppRoutes, DashboardRoutes } from './routes';
 import { RoutePattern } from './routes/Route.pattern';
 import './styles/main.css';
+import useUserService from './app/Hooks/useUserService';
 
 function App() {
+  useUserService();
+
   return (
     <div className="flex h-full flex-col font-sans bg-gray-100 min-h-screen">
       <Suspense fallback={<Loading />}>

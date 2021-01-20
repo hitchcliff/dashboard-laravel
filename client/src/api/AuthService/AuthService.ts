@@ -2,7 +2,6 @@ import axios from 'axios';
 import { RedirectService } from '../index';
 import { AuthLogin, AuthRegister } from '../../api';
 import { Logintypes, RegisterTypes } from '../../app/Auth/types';
-import useRedirectService from '../../app/Hooks/useRedirectService';
 import { register, login } from '../../features/Auth/Auth.slice';
 import Store from '../../Store';
 

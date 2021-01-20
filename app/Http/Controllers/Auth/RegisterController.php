@@ -30,7 +30,6 @@ class RegisterController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        // logged in
         if (Auth::attempt($request->only('username', 'password'))) {
             return $this->apiResponse($user, 'Good good, user created.', 201);
         };

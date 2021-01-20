@@ -11,7 +11,7 @@ export default function Auth() {
       {isLogin ? <Login state={setIsLogin} /> : <Register state={setIsLogin} />}
 
       <div className="ml-auto w-4/6 h-screen">
-        <img className="w-full h-full object-cover" src={AuthImage} alt="unsplash image" />
+        <img className="w-full h-full object-cover" src={AuthImage} alt="unsplash" />
       </div>
     </div>
   );
