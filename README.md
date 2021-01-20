@@ -7,6 +7,29 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+## Installation for Client
 
-Probably one of the best project I'll be building. This is Fullstack with Blackbox tests.
+-   `cd client` then `npm install` to install all deps
+-   `cd client` then `npm run start` to run the app in port localhost:3000
+-   `cd client` then `npm run watch:css` to watch the css
+
+*   If above doesn't work, try using `yarn`
+
+## Installation for Server/Provider
+
+-   `composer update` to install all deps
+
+*   Run the server at your preference, in my case, I'm using xampp. New endpoint which is `asalt.test` and sensitive information are stored in `PostgresSQL`. Speaking of `sql`, you can use any sql database you have in mind.
+
+## How to push
+
+-   `git checkout -b feature/name`
+-   `git checkout main`
+-   `git pull`
+-   `git checkout feature/name`
+-   `git add .`
+-   `git commmit -m "commit"`
+-   `git push`
+-   Resolve all conflicts
+
+### This is an ongoing project built for Practical Exercise. Next one will be awesome!
