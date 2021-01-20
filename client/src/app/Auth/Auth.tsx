@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Login from './Login';
 import Register from './Register';
 import AuthImage from '../../assets/auth-image.jpg';

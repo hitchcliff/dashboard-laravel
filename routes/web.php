@@ -20,3 +20,8 @@ Route::get('/u/{id}', function ($id) {
 // Route::get('/u/delete/{id}', function() {
 //    $ 
 // });
+
+Route::get('/test', function () {
+    $user = Role::with('users')->get();
+    return $user;
+});
